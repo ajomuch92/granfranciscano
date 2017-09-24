@@ -1,0 +1,49 @@
+<html ng-app="inicio_sesion">
+    <head>
+        <meta charset="utf-8">
+        <title>Gran Franciscano</title>
+        <link rel="stylesheet" href="css/materialize.min.css">
+        <link rel="stylesheet" href="css/icon.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                    $('.modal').modal();
+                  });
+        </script>
+    </head>
+    <body ng-controller="controladorinicio" ng-init="verificar()">
+        <nav>
+            <div class="nav-wrapper blue darken-3">
+              <a href="/granfranciscano" class="brand-logo">Inicio</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="waves-effect waves-light" href="#modal1">Inicio de sesión</a></li>
+              </ul>
+            </div>
+        </nav>
+        <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Iniciar Sesión</h4>
+            <form ng-submit=""  >
+                <div class="input-field">
+                  <input id="last_name" type="email" required class="validate" ng-model="email">
+                  <label for="last_name">Correo electrónico</label>
+                </div>
+                <div class="input-field">
+                  <input id="last_name" type="password" required class="validate" ng-model="password">
+                  <label for="last_name">Contraseña</label>
+                </div>
+                <button class=" blue darken-3 btn waves-effect waves-light" type="submit" name="action" ng-click="iniciarSesion();">Ingresar</button>
+                
+                {{ resultado }}
+            </form>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        </div>
+    </div>
+    <script src="js/controladorindex.js"></script>
+    </body>
+</html>

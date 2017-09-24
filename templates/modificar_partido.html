@@ -1,0 +1,44 @@
+<form ng-submit class="col s12">
+        <div class="row">
+              <div class="input-field col s12 m6">
+                <select ng-model="campeonato" class="browser-default">
+                  <option value="" disabled selected>Escoja una opción</option>
+                  <option ng-repeat="tipo in listaCampeonato" value="{{tipo.Id}}">{{tipo.Anio}}-{{tipo.Categoria}}</option>
+                </select>
+                <label class="active">Campeonato Seleccionado {{partido.Anio}}-{{partido.Categoria}}</label>
+            </div>
+        </div>
+        <div class="row">
+              <div class="input-field col s12 m6">
+                <select ng-model="tipo" class="browser-default">
+                  <option value="" disabled selected>Escoja una opción</option>
+                  <option ng-repeat="tipo in listaTipo" value="{{tipo.Id}}">{{tipo.Tipo}}</option>
+                </select>
+                <label class="active">Tipo partido Seleccionado {{partido.Tipo}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input type="date" ng-model="fecha">
+                <label class="active">Fecha del partido Seleccionada {{partido.Fecha}}</label>
+            </div>
+        </div>
+        <div class="row">
+              <div class="input-field col s12 m3">
+                <select ng-model="equipoSeleccionado" class="browser-default">
+                  <option value="" disabled selected>Escoja una opción</option>
+                  <option ng-repeat="tipo in listaEquipos" value="{{tipo}}">{{tipo.Equipo}}</option>
+                </select>
+                <label class="active">Agregar equipo</label>
+            </div>
+            <a class="btn-floating btn-large waves-effect waves-light blue darken-3 pulse" ng-click="aniadir()"><i class="material-icons">add</i></a>
+        </div>
+        <div class="row">
+            <div class="col s12 m2" ng-repeat="item in equipos">
+                 <div class="chip">{{item.Equipo}}<i class="close material-icons" ng-click="remover(item)">close</i></div>
+            </div>
+        </div>
+        <button class="blue darken-3 btn waves-effect waves-light" type="submit" name="action" ng-click="guardar()">Guardar cambios</button>
+        <button class="blue darken-3 btn waves-effect waves-light" type="submit" name="action" ng-click="noJugar()">No jugar partido</button>
+        <h6>{{msg}}</h6>
+</form>

@@ -1,0 +1,68 @@
+<html ng-app="inicio">
+    <head>
+        <meta charset="utf-8">
+        <title>Gran Franciscano</title>
+        <link rel="stylesheet" href="css/materialize.min.css">
+        <link rel="stylesheet" href="css/icon.css">
+        <link rel="stylesheet" href="css/materialize-stepper.min.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+        <script src="js/materialize-stepper.min.js"></script>
+    </head>
+    <body ng-controller="controladorinicio" ng-init="verificar()">
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#!agregar_campeonato">Agregar campeonato</a></li>
+          <li><a href="#!lista_campeonatos">Lista de campeonatos</a></li>
+            
+        </ul>
+        <ul id="dropdown2" class="dropdown-content">
+          <li><a href="#!agregar_partido">Agregar Partido</a></li>
+          <li><a href="#!lista_partidos">Lista de partidos</a></li>
+            
+        </ul>
+        <ul id="dropdown3" class="dropdown-content">
+          <li><a href="#!agregar_equipo">Agregar Equipo</a></li>
+          <li><a href="#!lista_equipos">Lista de equipos</a></li>
+            
+        </ul>
+        <ul id="dropdown4" class="dropdown-content">
+          <li><a href="#!agregar_usuario">Agregar usuario</a></li>
+          <li><a href="#!lista_usuarios">Lista de usuarios</a></li>
+          <li><a href="#!modificar_contrasenia">Cambiar mi contraseña</a></li>
+            
+        </ul>
+        <ul id="dropdown5" class="dropdown-content">
+          <li><a href="#!agregar_pregunta">Agregar pregunta</a></li>
+          <li><a href="#!lista_preguntas">Lista de preguntas</a></li>
+            
+        </ul>
+        <nav>
+            <div class="nav-wrapper blue darken-3">
+              <a href="/granfranciscano/inicio.html" class="brand-logo"><i class="material-icons">home</i>Inicio</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="waves-effect waves-light" ng-click="logout()">Cerrar Sesión</a></li>
+              </ul>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="dropdown-button waves-effect waves-light"  data-activates="dropdown5">Preguntas</a></li>
+              </ul>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="dropdown-button waves-effect waves-light"  data-activates="dropdown4">Usuarios</a></li>
+              </ul>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="dropdown-button waves-effect waves-light"  data-activates="dropdown3">Equipos</a></li>
+              </ul>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="dropdown-button waves-effect waves-light"  data-activates="dropdown2">Partidos</a></li>
+              </ul>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="dropdown-button waves-effect waves-light"  data-activates="dropdown1">Campeonatos</a></li>
+              </ul>
+            </div>
+        </nav>
+        <div ng-view></div>
+        
+        <script src="js/controladorinicio.js"></script>
+    </body>
+</html>

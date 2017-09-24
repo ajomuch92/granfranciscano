@@ -1,0 +1,16 @@
+<form ng-submit class="col s12" ng-init="cargar()">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="pregunta" class="materialize-textarea" ng-model="pregunta" required></textarea>
+            <label for="textarea1" class="active">Pregunta</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="respuesta" class="materialize-textarea" ng-model="respuesta" required></textarea>
+            <label for="textarea1" class="active">Respuesta</label>
+          </div>
+        </div>
+        <button class="blue darken-3 btn waves-effect waves-light" type="submit" name="action" ng-click="guardarCambios()">Guardar cambios</button>
+        <h6>{{msg}}</h6>
+      </form>

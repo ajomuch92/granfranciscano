@@ -1,0 +1,37 @@
+<form ng-submit class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+              <input id="nombre" type="text" class="validate" ng-model="nombre" required>
+              <label for="last_name">Nombre de usuario</label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+              <input id="correo" type="email" class="validate" ng-model="correo" required>
+              <label for="last_name">Correo</label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+              <input id="contrasenia" type="password" class="validate" ng-model="contrasenia" required>
+              <label for="last_name">Contraseña</label>
+            </div>
+        </div>
+        <div class="row">
+              <div class="input-field col s12 m6">
+                <select ng-model="tipoUsuario" class="browser-default">
+                  <option value="" disabled selected>Escoja una opción</option>
+                  <option ng-repeat="tipo in listaTipoUsuarios" value="{{tipo.Id_tipo_usuario}}">{{tipo.Tipo_usuario}}</option>
+                </select>
+                <label class="active">Tipo de usuario</label>
+            </div>
+        </div>
+        <button class="blue darken-3 btn waves-effect waves-light" type="submit" name="action" ng-click="guardar()">Guardar</button>
+        <h6>{{msg}}</h6>
+      </form>
+
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+      });
+</script>

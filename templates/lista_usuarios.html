@@ -1,0 +1,24 @@
+
+<table ng-init="" class="highlight responsive-table">
+        <input placeholder="Ingrese un texto a buscar" type="search" ng-model="filtro">
+        <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Tipo usuario</th>
+              <th>Fecha registro</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="item in items | filter:filtro">
+            <td>{{item.Nombre}}</td>
+            <td>{{item.Correo}}</td>
+            <td >{{item.Tipo}}</td>
+            <td >{{item.Fecha}}</td>
+            <td><a class="blue darken-3 btn waves-effect waves-light" href="#!modificar_usuario/{{item.Id}}/{{item.Id_tipo}}" >Editar</a></td>
+            <td><a class="blue darken-3 btn waves-effect waves-light" ng-click="eliminar(item.Id)">Eliminar</a></td>
+          </tr>
+        </tbody>
+      </table>
+{{msg}}

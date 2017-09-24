@@ -1,0 +1,110 @@
+<script>
+    $(document).ready(function(){
+        $('.stepper').activateStepper();
+      });
+</script>
+
+<div class="row">
+              <div class="input-field col s12 m4">
+                <select ng-model="campeonatoSeleccionado" class="browser-default">
+                  <option value="" disabled selected>Escoja una opción</option>
+                  <option ng-repeat="tipo in listaCampeonato" value="{{tipo.Id}}">{{tipo.Anio}}-{{tipo.Categoria}}</option>
+                </select>
+                <label class="active">Campeonato</label>
+                <a class="blue darken-3 btn waves-effect waves-light" ng-click="mostrar()">Mostrar</a>
+                <p>{{msg}}</p>
+            </div>
+        </div>
+
+<ul class="stepper horizontal" id="horizontal">
+                <li class="step">
+                    <div data-step-label="No jugados" class="step-title waves-effect waves-dark">Partidos</div>
+                    <div class="step-content">
+                        <table ng-init="" class="highlight responsive-table">
+                            <input placeholder="Ingrese un texto a buscar" type="search" ng-model="filtro_1">
+                            <thead>
+                              <tr>
+                                  <th>Año campeonato</th>
+                                  <th>Categoría</th>
+                                  <th>Fecha</th>
+                                  <th>Tipo partido</th>
+                                  <th>Equipos</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              <tr ng-repeat="item in partidosNoJugados | filter:filtro_1">
+                                <td>{{item.Anio}}</td>
+                                <td>{{item.Categoria}}</td>
+                                <td>{{item.Fecha}}</td>
+                                <td>{{item.Tipo}}</td>
+                                <td ng-repeat="subitem in item.Equipos">
+                                    <p>{{subitem.Equipo}}({{subitem.Puntos}})</p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </li>
+                <li class="step">
+                    <div data-step-label="Jugados" class="step-title waves-effect waves-dark">Partidos</div>
+                    <div class="step-content">
+                        <table ng-init="" class="highlight responsive-table">
+                            <input placeholder="Ingrese un texto a buscar" type="search" ng-model="filtro_2">
+                            <thead>
+                              <tr>
+                                  <th>Año campeonato</th>
+                                  <th>Categoría</th>
+                                  <th>Fecha</th>
+                                  <th>Tipo partido</th>
+                                  <th>Equipos</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              <tr ng-repeat="item in partidosJugados | filter:filtro_2">
+                                <td>{{item.Anio}}</td>
+                                <td>{{item.Categoria}}</td>
+                                <td>{{item.Fecha}}</td>
+                                <td>{{item.Tipo}}</td>
+                                <td ng-repeat="subitem in item.Equipos">
+                                    <p>{{subitem.Equipo}}({{subitem.Puntos}})</p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </li>
+                <li class="step active">
+                    <div data-step-label="Por jugar" class="step-title waves-effect waves-dark">Partidos</div>
+                    <div class="step-content">
+                        <table ng-init="" class="highlight responsive-table">
+                            <input placeholder="Ingrese un texto a buscar" type="search" ng-model="filtro">
+                            <thead>
+                              <tr>
+                                  <th>Año campeonato</th>
+                                  <th>Categoría</th>
+                                  <th>Fecha</th>
+                                  <th>Tipo partido</th>
+                                  <th>Equipos</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              <tr ng-repeat="item in partidosXJugar | filter:filtro">
+                                <td>{{item.Anio}}</td>
+                                <td>{{item.Categoria}}</td>
+                                <td>{{item.Fecha}}</td>
+                                <td>{{item.Tipo}}</td>
+                                <td ng-repeat="subitem in item.Equipos">
+                                    <p>{{subitem.Equipo}}({{subitem.Puntos}})</p>
+                                </td>
+                                <td><a class="blue darken-3 btn waves-effect waves-light" href="#!modificar_partido/{{item.Id}}" >Editar</a></td>
+                                <td><a class="blue darken-3 btn waves-effect waves-light" ng-click="eliminar(item.Id)">Eliminar</a></td>
+                                <td><a class="blue darken-3 btn waves-effect waves-light" href="#!jugar_partido/{{item.Id}}">Jugar</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </li>
+      </ul>
